@@ -39,3 +39,11 @@
 - Tool: browser Network panel.
 - Root cause: static hosting needs an SPA fallback.
 - Fix: `vercel.json` rewrites all routes to `/index.html`.
+
+## 6. Stale cart storage
+
+- Symptom: the Error Boundary showed `Cannot read properties of undefined (reading 'reduce')` on startup.
+- Reproduction: keep an older or malformed `shop_cart` value in localStorage and reload the app.
+- Tool: browser error title and the React stack location in CartContext.
+- Root cause: persisted storage was trusted without validating that `items` was an array.
+- Fix: CartContext now normalizes persisted data and safely falls back to an empty cart.
