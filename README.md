@@ -41,6 +41,12 @@ Demo login: any username plus a password with at least six characters. The Quick
 
 The app is Vercel-ready. `vercel.json` enables SPA fallback so direct `/products/:id` refreshes resolve to the application shell.
 
+Live demo: pending the first Vercel deployment from `main`.
+
+## Branch history
+
+The implementation is organized into focused feature branches. See `docs/BRANCHING.md` for the branch map and `CONTRIBUTING.md` for the review checklist.
+
 ## Credits
 
 Design direction is based on the 10X Shop graduation-project specification. Product data is provided by DummyJSON. AI was used for implementation assistance; all generated code was reviewed and validated with TypeScript and production build checks.
