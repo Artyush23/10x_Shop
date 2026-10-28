@@ -5,7 +5,12 @@ import { Cart } from '../models/Cart';
 import { OrderModel } from '../models/Order';
 
 type CartAction = { type: 'ADD_ITEM'; product: Product; quantity?: number } | { type: 'SET_QUANTITY'; id: number; quantity: number } | { type: 'REMOVE_ITEM'; id: number } | { type: 'SET_PROMO'; code: string | null } | { type: 'CLEAR' };
-const initialCart: CartState = cartStorage.get() ?? { items: [], promoCode: null };
+function readInitialCart(): CartState {
+  const stored = cartStorage.get();
+  if (!stored || !Array.isArray(stored.items)) return { items: [], promoCode: null };
+  return { items: stored.items, promoCode: typeof stored.promoCode === 'string' ? stored.promoCode : null };
+}
+const initialCart: CartState = readInitialCart();
 function cartReducer(state: CartState, action: CartAction): CartState { switch (action.type) { case 'ADD_ITEM': { const current = state.items.find(x => x.product.id === action.product.id); const quantity = Math.min(action.product.stock, (current?.quantity ?? 0) + (action.quantity ?? 1)); return { ...state, items: current ? state.items.map(x => x.product.id === action.product.id ? { ...x, quantity } : x) : [...state.items, { product: action.product, quantity }] }; } case 'SET_QUANTITY': return { ...state, items: state.items.map(x => x.product.id === action.id ? { ...x, quantity: Math.max(1, Math.min(x.product.stock, action.quantity)) } : x) }; case 'REMOVE_ITEM': return { ...state, items: state.items.filter(x => x.product.id !== action.id) }; case 'SET_PROMO': return { ...state, promoCode: action.code }; case 'CLEAR': return { items: [], promoCode: null }; default: return state; } }
 
 interface CartContextValue { state: CartState; add: (product: Product, quantity?: number) => void; setQuantity: (id: number, quantity: number) => void; remove: (id: number) => void; applyPromo: (code: string) => boolean; clear: () => void; count: number; cart: Cart; }
