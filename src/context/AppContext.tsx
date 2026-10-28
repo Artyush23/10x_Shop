@@ -3,6 +3,7 @@ import type { AuthUser, CartState, CheckoutForm, Order, Product } from '../types
 import { cartStorage, orderStorage, profileStorage, userStorage } from '../utils/storage';
 import { Cart } from '../models/Cart';
 import { OrderModel } from '../models/Order';
+import { PROMO_CODE } from '../utils/constants';
 
 type CartAction = { type: 'ADD_ITEM'; product: Product; quantity?: number } | { type: 'SET_QUANTITY'; id: number; quantity: number } | { type: 'REMOVE_ITEM'; id: number } | { type: 'SET_PROMO'; code: string | null } | { type: 'CLEAR' };
 function readInitialCart(): CartState {
@@ -15,7 +16,7 @@ function cartReducer(state: CartState, action: CartAction): CartState { switch (
 
 interface CartContextValue { state: CartState; add: (product: Product, quantity?: number) => void; setQuantity: (id: number, quantity: number) => void; remove: (id: number) => void; applyPromo: (code: string) => boolean; clear: () => void; count: number; cart: Cart; }
 const CartContext = createContext<CartContextValue | undefined>(undefined);
-export function CartProvider({ children }: { children: React.ReactNode }) { const [state, dispatch] = useReducer(cartReducer, initialCart); useEffect(() => cartStorage.set(state), [state]); const value = useMemo<CartContextValue>(() => ({ state, add: (product, quantity) => dispatch({ type: 'ADD_ITEM', product, quantity }), setQuantity: (id, quantity) => dispatch({ type: 'SET_QUANTITY', id, quantity }), remove: id => dispatch({ type: 'REMOVE_ITEM', id }), applyPromo: code => { const valid = code.trim().toUpperCase() === '10X10'; dispatch({ type: 'SET_PROMO', code: valid ? '10X10' : null }); return valid; }, clear: () => dispatch({ type: 'CLEAR' }), count: state.items.reduce((sum, item) => sum + item.quantity, 0), cart: new Cart(state.items, state.promoCode) }), [state]); return <CartContext.Provider value={value}>{children}</CartContext.Provider>; }
+export function CartProvider({ children }: { children: React.ReactNode }) { const [state, dispatch] = useReducer(cartReducer, initialCart); useEffect(() => cartStorage.set(state), [state]); const value = useMemo<CartContextValue>(() => ({ state, add: (product, quantity) => dispatch({ type: 'ADD_ITEM', product, quantity }), setQuantity: (id, quantity) => dispatch({ type: 'SET_QUANTITY', id, quantity }), remove: id => dispatch({ type: 'REMOVE_ITEM', id }), applyPromo: code => { const valid = code.trim().toUpperCase() === PROMO_CODE; dispatch({ type: 'SET_PROMO', code: valid ? PROMO_CODE : null }); return valid; }, clear: () => dispatch({ type: 'CLEAR' }), count: state.items.reduce((sum, item) => sum + item.quantity, 0), cart: new Cart(state.items, state.promoCode) }), [state]); return <CartContext.Provider value={value}>{children}</CartContext.Provider>; }
 export function useCart(): CartContextValue { const value = useContext(CartContext); if (!value) throw new Error('useCart must be used inside CartProvider'); return value; }
 
 interface AuthContextValue { user: AuthUser; login: (username: string) => void; logout: () => void; }
