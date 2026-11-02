@@ -11,7 +11,16 @@
 
 ## Verification
 
-Run `npm run typecheck`, `npm run lint`, and `npm run build` before submission. Lighthouse and browser-matrix measurements belong in `docs/lighthouse/` and `COMPATIBILITY.md` after the public deployment URL is available; no values are fabricated here.
+GitHub repository: https://github.com/Artyush23/10x_Shop
+
+Final local verification passed on `main` before synchronization:
+
+- `npm run typecheck`
+- `npm run lint`
+- `npm run test` — 3 smoke tests passed
+- `npm run build` — Vite production build passed with route chunks
+
+The repository contains `main` plus six focused feature/documentation branches. Lighthouse and browser-matrix measurements belong in `docs/lighthouse/` and `COMPATIBILITY.md` after the public deployment URL is available; no values are fabricated here.
 
 ## Limitations
 

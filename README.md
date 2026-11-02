@@ -27,6 +27,7 @@ Production checks:
 ```bash
 npm run typecheck
 npm run lint
+npm run test
 npm run build
 npm run preview
 ```
@@ -40,6 +41,8 @@ Demo login: any username plus a password with at least six characters. The Quick
 ## Deployment
 
 The app is Vercel-ready. `vercel.json` enables SPA fallback so direct `/products/:id` refreshes resolve to the application shell.
+
+GitHub repository: [Artyush23/10x_Shop](https://github.com/Artyush23/10x_Shop)
 
 Live demo: pending the first Vercel deployment from `main`.
 
