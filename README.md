@@ -44,7 +44,7 @@ The app is Vercel-ready. `vercel.json` enables SPA fallback so direct `/products
 
 GitHub repository: [Artyush23/10x_Shop](https://github.com/Artyush23/10x_Shop)
 
-Live demo: pending the first Vercel deployment from `main`.
+Live demo: [10x-shop.vercel.app](https://10x-shop.vercel.app)
 
 ## Branch history
 
