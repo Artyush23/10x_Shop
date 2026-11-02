@@ -22,7 +22,8 @@ export interface Product {
 
 export interface ProductsResponse { products: Product[]; total: number; skip: number; limit: number; }
 export interface Category { slug: string; name: string; url: string; }
-export interface AuthUser { username: string; isLoggedIn: boolean; }
+export interface AuthUser { username: string; fullName?: string; email?: string; isLoggedIn: boolean; }
+export interface SignupFormValues { fullName: string; email: string; password: string; }
 export interface LoginFormValues { username: string; password: string; }
 export interface CheckoutForm { fullName: string; email: string; address: string; city: string; }
 export interface CartItem { product: Product; quantity: number; }
