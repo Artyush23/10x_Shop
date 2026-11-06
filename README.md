@@ -46,7 +46,7 @@ GitHub repository: [Artyush23/10x_Shop](https://github.com/Artyush23/10x_Shop)
 
 Live demo: [10x-shop.vercel.app](https://10x-shop.vercel.app)
 
-Demo video: local file [10x-shop-demo.mp4](./10x-shop-demo.mp4), ready for upload to an external submission host. The video is silent and approximately 2:04; public video link: pending.
+Demo video: local file [10x-shop-demo.mp4](./10x-shop-demo.mp4), ready for upload to an external submission host. The video is silent and approximately 2:33; public video link: pending.
 
 ## Branch history
 

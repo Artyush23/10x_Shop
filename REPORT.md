@@ -43,7 +43,7 @@ Edge was verified with Playwright screenshot capture stored in `docs/lighthouse/
 
 ### Demo video evidence
 
-A silent 1920×1080 MP4 demo was generated at `10x-shop-demo.mp4` (approximately 2:04, no audio stream). It covers the catalog, product details, cart/promo, protected checkout, order tracking, profile settings, and direct product-route refresh. The file is intentionally ignored by Git because of binary size; it must be uploaded to an external host before submission and its real URL added here.
+A silent 1920×1080 MP4 demo was generated at `10x-shop-demo.mp4` (approximately 2:33, no audio stream). It covers the catalog, product details, cart/promo, login, protected checkout, order tracking, profile settings, and direct product-route refresh with deterministic demo data. The file is intentionally ignored by Git because of binary size; it must be uploaded to an external host before submission and its real URL added here.
 
 ## Limitations
 

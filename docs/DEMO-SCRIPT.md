@@ -25,5 +25,6 @@
 ## Recording evidence
 
 - Local file: `../10x-shop-demo.mp4`
-- Format: silent MP4, 1920×1080, approximately 2:04
+- Format: silent MP4, 1920×1080, approximately 2:33
+- The recording uses deterministic demo data so the catalog, cart, checkout, and order screens remain populated during playback.
 - External upload link: pending (YouTube Unlisted / Google Drive / OneDrive).
