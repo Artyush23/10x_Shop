@@ -41,6 +41,10 @@ Raw reports are stored in `docs/lighthouse/live-desktop.json` and `docs/lighthou
 
 Edge was verified with Playwright screenshot capture stored in `docs/lighthouse/edge-home.png`. Firefox runtime launch failed with Windows `spawn UNKNOWN` and side-by-side configuration errors, so Firefox remains explicitly pending rather than being inferred.
 
+### Demo video evidence
+
+A silent 1920×1080 MP4 demo was generated at `10x-shop-demo.mp4` (approximately 2:04, no audio stream). It covers the catalog, product details, cart/promo, protected checkout, order tracking, profile settings, and direct product-route refresh. The file is intentionally ignored by Git because of binary size; it must be uploaded to an external host before submission and its real URL added here.
+
 ## Limitations
 
 Authentication and payment are intentionally local simulations. DummyJSON is a public demo API and can be unavailable or rate-limited; fallback products preserve the basic catalog experience.

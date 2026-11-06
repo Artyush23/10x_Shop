@@ -9,4 +9,6 @@
 - [ ] Verify Firefox live rendering; blocked by the environment's Firefox runtime launch error.
 - [x] Confirm `npm run typecheck`, `npm run lint`, `npm run test`, and `npm run build` locally.
 - [x] Record the final commit, branch, issue, and pull-request counts in `REPORT.md` after GitHub verification.
-- [x] Add a short demo script and screenshot checklist; video link remains pending until recorded.
+- [x] Add a short demo script and screenshot checklist.
+- [x] Generate a local silent demo video at `10x-shop-demo.mp4`.
+- [ ] Upload the video to YouTube Unlisted, Google Drive, or OneDrive and replace the pending link in `README.md` and `REPORT.md`.

@@ -22,4 +22,8 @@
 - Profile/theme settings
 - Direct `/products/5` refresh
 
-Video link: pending recording.
+## Recording evidence
+
+- Local file: `../10x-shop-demo.mp4`
+- Format: silent MP4, 1920×1080, approximately 2:04
+- External upload link: pending (YouTube Unlisted / Google Drive / OneDrive).
